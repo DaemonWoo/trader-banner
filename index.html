@@ -31,7 +31,7 @@
             /* жёлтый */
             --color-4: #e83611;
             /* красный */
-            --color-5: #f9002f;
+            --color-5: #66e468;
             /* неоновый красный */
             --background: #0F2F24;
             --yellow-accent: #F4C430;
@@ -77,41 +77,53 @@
         }
 
         h1 {
-  font-family: "Playpen Sans", cursive;
-  font-size: clamp(80px, 4.5vw, 110px);
-  font-weight: 900;
-  width: min-content;
-  margin: auto;
-  text-transform: uppercase;
+            font-family: "Playpen Sans", cursive;
+            font-size: clamp(80px, 4.5vw, 110px);
+            font-weight: 900;
+            width: min-content;
+            margin: auto;
+            text-transform: uppercase;
 
-  background: linear-gradient(
-    219deg,
-    var(--color-1) 19%,
-    transparent 19%, transparent 20%,
-    var(--color-2) 20%, var(--color-2) 39%,
-    transparent 39%, transparent 40%,
-    var(--color-3) 40%, var(--color-3) 59%,
-    transparent 59%, transparent 60%,
-    var(--color-4) 60%, var(--color-4) 79%,
-    transparent 79%, transparent 80%,
-    var(--color-5) 80%
-  );
+            background: linear-gradient(219deg,
+                    var(--color-5) 19%,
+                    transparent 19%, transparent 20%,
+                    var(--green-light) 20%, var(--green-light) 39%,
+                    transparent 39%, transparent 40%,
+                    var(--color-3) 40%, var(--color-3) 59%,
+                    transparent 59%, transparent 60%,
+                    var(--green-light) 60%, var(--green-light) 79%,
+                    transparent 79%, transparent 80%,
+                    var(--color-5) 80%);
 
-  background-size: 150% 150%;
-  background-position: 0% 50%;
+            background-size: 150% 150%;
+            background-position: 0% 50%;
 
-  animation: flameMove 8s ease-in-out infinite;
+            animation: flameMove 8s ease-in-out infinite;
 
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
         @keyframes flameMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .tether {
+            width:auto;
+            height: clamp(45px, 2.5vw, 80px);
+            
+        }
 
         /* Subtitle */
         .subtitle {
@@ -209,9 +221,9 @@
             align-items: center;
         }
 
-        
 
-        
+
+
 
         .cta-button {
             background: var(--accent-green);
@@ -274,12 +286,12 @@
             /* Сделать иконку чуть меньше текста */
             color: #186cb8;
 
-            
+
 
             /* Telegram blue */
         }
 
-        
+
 
         /* Hover эффект кнопки */
         .tg-button:hover {
@@ -354,7 +366,7 @@
                 padding-left: 20px;
             }
 
-             .colored h1 {
+            .colored h1 {
                 font-size: 60px;
             }
 
@@ -372,7 +384,8 @@
 
         <div class="colored">
             <!-- обычный заголовок -->
-            <h1>ЗАСТАВЬ ДЕНЬГИ РАБОТАТЬ НА ТЕБЯ</h1>
+            <h1>ЗАСТАВЬ USDT<img class="tether" src="tether.svg" alt="Graph up" /> РАБОТАТЬ НА СЕБЯ</h1>
+
             <!-- CTA -->
 
         </div>
@@ -380,22 +393,21 @@
         <div class="content">
 
             <p class="subtitle">
-                Ваш капитал работает под управлением профессионального трейдера
-                с ориентацией на <span class="accent">стабильную доходность</span>.
+                Ваш капитал работает под управлением профессионального трейдера,
+                который гарантирует <span class="accent">стабильную доходность</span>.
             </p>
 
             <!-- Features -->
             <ul class="smart-list icon-list">
-                <li><i class="bi bi-graph-up"></i> Торговая стратегия</li>
+                <li><i class="bi bi-graph-up"></i> Торговая стратегия скальпинг</li>
                 <li><i class="bi bi-shield-check"></i> Контроль рисков</li>
-                <li><i class="bi bi-cash-stack"></i> Процент от результата</li>
-
+                <li><i class="bi bi-cash-stack"></i> 50% от доходности клиенту</li>
             </ul>
 
 
             <span>Без сигналов.
                 Без хаотичных сделок.
-                Только системная торговля на одной бирже.</span>
+                Только системная торговля на бирже MEXC.</span>
 
 
         </div>
@@ -404,7 +416,7 @@
     </div>
     <div>
         <div class="cta-section">
-            <a href="https://t.me/Sharpeyedsony" target="_blank">
+            <a href="https://t.me/trading_snami" target="_blank">
                 <button class="tg-button">
                     <i class="bi bi-telegram"></i>
                     Связаться в Telegram
