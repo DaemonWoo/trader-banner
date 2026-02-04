@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заставь деньги работать за тебя</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arial+Black&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Playwrite+NZ+Basic:wght@100..400&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,147 +23,181 @@
 
         :root {
             --accent-green: #000000;
+            --color-1: #186cb8;
+            /* холодный синий */
+            --color-2: #2a9a9f;
+            /* бирюзовый */
+            --color-3: #F4C430;
+            /* жёлтый */
+            --color-4: #e83611;
+            /* красный */
+            --color-5: #f9002f;
+            /* неоновый красный */
+            --background: #0F2F24;
+            --yellow-accent: #F4C430;
+            --green-light: #6EDC9A;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #000000;
+            font-family: "Playpen Sans", cursive;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            background: var(--background);
+
             display: flex;
+
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 0;
+            flex-direction: column;
+            color: var(--green-light);
+            widows: 100%;
+            height: 100vh;
         }
 
         .container {
-            width: 100%;
-            max-width: 100%;
-            background: #ffffff;
-            position: relative;
+            width: 65%;
+
+            display: flex;
+
+            letter-spacing: 1px;
+
+            gap: 3em;
         }
 
-        /* Top bar - Balenciaga style */
-        .top-bar {
-            background: #000000;
-            color: #ffffff;
-            padding: 15px 40px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-align: center;
+
+
+        /* настройки блока с текстом */
+        .colored {
+            line-height: 1;
+
+            display: grid;
+            align-content: start;
+            margin-bottom: 20px;
         }
 
-        /* Main content */
-        .content {
-            padding: 80px 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Brutal headline */
         h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 120px;
-            font-weight: 900;
-            color: #000000;
-            line-height: 0.85;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: -4px;
-        }
+  font-family: "Playpen Sans", cursive;
+  font-size: clamp(80px, 4.5vw, 110px);
+  font-weight: 900;
+  width: min-content;
+  margin: auto;
+  text-transform: uppercase;
 
-        .word-block {
-            display: block;
-        }
+  background: linear-gradient(
+    219deg,
+    var(--color-1) 19%,
+    transparent 19%, transparent 20%,
+    var(--color-2) 20%, var(--color-2) 39%,
+    transparent 39%, transparent 40%,
+    var(--color-3) 40%, var(--color-3) 59%,
+    transparent 59%, transparent 60%,
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%,
+    var(--color-5) 80%
+  );
 
-        .highlight {
-            background: var(--accent-green);
-            color: #ffffff;
-            padding: 10px 20px;
-            display: inline-block;
-            margin: 5px 0;
-        }
+  background-size: 150% 150%;
+  background-position: 0% 50%;
+
+  animation: flameMove 8s ease-in-out infinite;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+        @keyframes flameMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
         /* Subtitle */
         .subtitle {
-            font-size: 16px;
-            color: #000000;
+
             line-height: 1.8;
-            margin-bottom: 60px;
-            font-weight: 400;
-            max-width: 600px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+
         }
 
-        /* Stats - Minimal boxes */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            margin-bottom: 60px;
-            border: 3px solid #000000;
-        }
-
-        .stat-box {
-            background: #ffffff;
-            border-right: 3px solid #000000;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .stat-box:last-child {
-            border-right: none;
-        }
-
-        .stat-value {
-            font-size: 72px;
-            font-weight: 900;
-            color: #000000;
-            line-height: 1;
-            margin-bottom: 15px;
-            letter-spacing: -2px;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
+        .subtitle .accent {
+            color: var(--yellow-accent);
         }
 
         /* Features - Brutalist list */
-        .features {
+        .smart-list li {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        /* поочерёдная задержка */
+        .smart-list li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .smart-list li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .smart-list li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .smart-list li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .smart-list li {
+            transition: color 0.3s ease-in, transform 0.3s ease;
+        }
+
+        .smart-list li:hover {
+            color: var(--green-light);
+            transform: translateX(4px);
+        }
+
+        .icon-list {
             list-style: none;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
         }
 
-        .feature {
-            border-top: 3px solid #000000;
-            padding: 25px 0;
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #000000;
+        .smart-list li i {
+            animation: pulse 3.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.4;
+            }
+        }
+
+        .icon-list li {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 10px;
+            margin-bottom: 12px;
         }
 
-        .feature:last-child {
-            border-bottom: 3px solid #000000;
-        }
-
-        .feature-number {
-            font-size: 48px;
-            font-weight: 900;
-            line-height: 1;
-            flex-shrink: 0;
-            width: 80px;
-            color: var(--accent-green);
+        .icon-list i {
+            color: var(--green-light);
+            font-size: 20px;
         }
 
         /* CTA Section */
@@ -167,24 +209,14 @@
             align-items: center;
         }
 
-        .cta-section a {
-            text-decoration: none;
-            color: #000000;
-        }
+        
 
-        .cta-label {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #000000;
-        }
+        
 
         .cta-button {
             background: var(--accent-green);
             color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
+
             font-size: 20px;
             font-weight: 900;
             padding: 30px 60px;
@@ -199,200 +231,137 @@
         }
 
 
-
-        .contact-block {
-            position: relative;
-            width: 65vw;
-            height: 120px;
-            background: white;
-            overflow: hidden;
-            border: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Чёрный слой */
-        .contact-block::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: #000;
-            transform: translateX(0);
-            transition: transform 0.4s ease;
-            z-index: 1;
-        }
-
-        /* Анимация уезда */
-        .contact-block:hover::before {
-            transform: translateX(100%);
-        }
-
         /* Кнопка */
         .tg-button {
-            display: flex;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
             align-items: center;
-            /* Вертикальное выравнивание */
-            justify-content: center;
-            /* Горизонтальное центрирование внутри кнопки */
             gap: 10px;
-            /* Расстояние между иконкой и текстом */
+            font-family: "Playpen Sans", cursive;
+            padding: 14px 28px;
+            background: var(--yellow-accent);
 
-            padding: 12px 24px;
-            /* Внутренние отступы */
-            background-color: #0088CC;
-            /* Цвет кнопки */
-            color: #fff;
-            /* Цвет текста */
-            font-size: 16px;
-            /* Размер текста */
+            font-size: 20px;
             font-weight: 500;
+
             border: none;
             border-radius: 8px;
-            /* Скругление углов */
             cursor: pointer;
 
-            position: relative;
-            /* Чтобы оставалась поверх hover-блока */
-            z-index: 2;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.3s ease;
+        }
+
+        /* Hover — кнопка "дышит" */
+        .tg-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 158, 217, 0.35);
+            background: #1c88c7;
+        }
+
+        /* Active — физический отклик */
+        .tg-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(34, 158, 217, 0.25);
         }
 
         /* Иконка Telegram */
         .tg-button i {
-            font-size: 1.6rem;
+            font-size: 2.6rem;
             /* Сделать иконку чуть меньше текста */
+            color: #186cb8;
+
+            
 
             /* Telegram blue */
         }
 
+        
+
         /* Hover эффект кнопки */
         .tg-button:hover {
-            background-color: #1a7bb8;
+            background-color: var(--green-light);
             /* Немного темнее */
             transform: translateY(-2px);
             /* Лёгкий эффект поднятия */
+
         }
 
-        /* Bottom section */
-        .bottom-info {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 3px solid #000000;
-            display: flex;
-            justify-content: space-between;
-
-            flex-wrap: wrap;
-            gap: 30px;
+        .tg-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            transition: left 0.6s ease;
         }
 
-        .info-block {
-            flex: 1;
-            min-width: 200px;
+        .tg-button:hover::after {
+            left: 120%;
         }
 
-        .info-title {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            color: #000000;
-        }
-
-        .info-text {
-            font-size: 14px;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        /* Footer bar */
-        .footer-bar {
-            background: #000000;
-            color: #ffffff;
-            padding: 20px 40px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
-        }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            h1 {
-                font-size: 80px;
-                letter-spacing: -2px;
+        @media (max-width: 1164px) {
+            body {
+                padding: 30px;
             }
 
-            .content {
-                padding: 60px 40px;
+            .container {
+                display: block;
+
             }
 
-            .stats {
-                grid-template-columns: 1fr;
+            .colored {
+                justify-content: start;
             }
 
-            .stat-box {
-                border-right: none;
-                border-bottom: 3px solid #000000;
+            .colored h1 {
+                font-size: 60px;
             }
 
-            .stat-box:last-child {
-                border-bottom: none;
-            }
-
-            .side-label {
-                display: none;
+            .cta-section {
+                margin-top: 40px;
             }
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 56px;
-                letter-spacing: -1px;
+        @media (max-width: 480px) {
+            body {
+
+                margin-bottom: 30px;
+                height: 100%;
+                display: block;
+                padding: 20px;
             }
 
-            .highlight {
-                padding: 8px 15px;
+            .container {
+                width: 100%;
+                padding-top: 10px;
             }
 
             .content {
-                padding: 40px 25px;
-            }
-
-            .top-bar,
-            .footer-bar {
-                padding: 15px 25px;
-                font-size: 10px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-            }
-
-            .stat-value {
-                font-size: 56px;
-            }
-
-            .feature {
-                font-size: 16px;
-                padding: 20px 0;
-            }
-
-            .feature-number {
-                font-size: 36px;
-                width: 60px;
-            }
-
-            .cta-button {
-                padding: 25px 40px;
-                font-size: 18px;
-            }
-
-            .bottom-info {
+                display: flex;
                 flex-direction: column;
+
+                padding-left: 20px;
             }
+
+             .colored h1 {
+                font-size: 60px;
+            }
+
+            .colored {
+                justify-content: center;
+            }
+
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -400,90 +369,48 @@
 
 <body>
     <div class="container">
-        <!-- Top bar -->
-        <div class="top-bar">
-            Investment Strategy — Professional Trading
+
+        <div class="colored">
+            <!-- обычный заголовок -->
+            <h1>ЗАСТАВЬ ДЕНЬГИ РАБОТАТЬ НА ТЕБЯ</h1>
+            <!-- CTA -->
+
         </div>
-
-
 
         <div class="content">
-            <!-- Headline -->
-            <h1>
-                <span class="word-block">ЗАСТАВЬ</span>
-                <span class="word-block">ДЕНЬГИ</span>
-                <span class="word-block highlight">РАБОТАТЬ</span>
-                <span class="word-block">ЗА ТЕБЯ</span>
-            </h1>
 
             <p class="subtitle">
-                Передай капитал профессиональному трейдеру и получай процент с его прибыли
+                Ваш капитал работает под управлением профессионального трейдера
+                с ориентацией на <span class="accent">стабильную доходность</span>.
             </p>
 
-            <!-- Stats -->
-            <!-- <div class="stats">
-                <div class="stat-box">
-                    <div class="stat-value">347%</div>
-                    <div class="stat-label">Прибыль</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">24/7</div>
-                    <div class="stat-label">Торговля</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value">89%</div>
-                    <div class="stat-label">Успех</div>
-                </div>
-            </div> -->
-
             <!-- Features -->
-            <ul class="features">
-                <li class="feature">
-                    <span class="feature-number">01</span>
-                    <span>Авторская торговая стратегия</span>
-                </li>
-                <li class="feature">
-                    <span class="feature-number">02</span>
-                    <span>Торговля на одной конкретной бирже</span>
-                </li>
-                <li class="feature">
-                    <span class="feature-number">03</span>
-                    <span>Доход формируется как % от результата</span>
-                </li>
+            <ul class="smart-list icon-list">
+                <li><i class="bi bi-graph-up"></i> Торговая стратегия</li>
+                <li><i class="bi bi-shield-check"></i> Контроль рисков</li>
+                <li><i class="bi bi-cash-stack"></i> Процент от результата</li>
+
             </ul>
 
-            <!-- CTA -->
-            <div class="cta-section">
-                <a href="https://t.me/Sharpeyedsony" target="_blank">
-                    <button class="tg-button">
-                        <i class="bi bi-telegram" style="font-size: 2rem; color: #e6e9eb;"></i>
-                        Связаться в Telegram
-                    </button>
-                </a>
+
+            <span>Без сигналов.
+                Без хаотичных сделок.
+                Только системная торговля на одной бирже.</span>
 
 
-            </div>
-
-            <!-- Bottom info -->
-            <div class="bottom-info">
-                <div class="info-block">
-                    <div class="info-title">Стратегия</div>
-                    <div class="info-text">Без сигналов.
-                        Без хаотичных сделок.
-                        Только системная торговля на одной бирже.</div>
-                </div>
-
-                <div class="info-block">
-                    <div class="info-title">Результат</div>
-                    <div class="info-text">Стабильный пассивный доход от торговли</div>
-                </div>
-            </div>
         </div>
 
-        <!-- Footer bar -->
-        <!-- <div class="footer-bar">
-            Trading System © 2026 — Professional Investment Solutions
-        </div> -->
+
+    </div>
+    <div>
+        <div class="cta-section">
+            <a href="https://t.me/Sharpeyedsony" target="_blank">
+                <button class="tg-button">
+                    <i class="bi bi-telegram"></i>
+                    Связаться в Telegram
+                </button>
+            </a>
+        </div>
     </div>
 </body>
 
